@@ -17,11 +17,11 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { useUser } from "@/contexts/user-context";
+import { User } from "@/types";
 
-export function NavUser() {
+export function NavUser({ user }: { user: User }) {
   const { isMobile } = useSidebar();
-  const user = useUser();
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -40,6 +40,7 @@ export function NavUser() {
                   {user.last_name?.charAt(0).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
+
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">
                   {user.first_name} {user.last_name}

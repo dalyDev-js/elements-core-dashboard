@@ -1,6 +1,11 @@
 "use client";
-
-import { ChevronRight, type LucideIcon } from "lucide-react";
+import {
+  ChevronRight,
+  Home,
+  SquareTerminal,
+  Bot,
+  BookOpen,
+} from "lucide-react";
 
 import {
   Collapsible,
@@ -18,13 +23,20 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
+const iconMap = {
+  home: Home,
+  "square-terminal": SquareTerminal,
+  bot: Bot,
+  "book-open": BookOpen,
+} as const;
+
 export function NavMain({
   items,
 }: {
   items: {
     title: string;
     url: string;
-    icon?: LucideIcon;
+    icon?: string;
     isActive?: boolean;
     items?: {
       title: string;
@@ -36,8 +48,12 @@ export function NavMain({
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map((item) =>
-          item.items ? (
+        {items.map((item) => {
+          const Icon = item.icon
+            ? iconMap[item.icon as keyof typeof iconMap]
+            : null;
+
+          return item.items ? (
             <Collapsible
               key={item.title}
               asChild
@@ -46,7 +62,7 @@ export function NavMain({
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
                   <SidebarMenuButton tooltip={item.title}>
-                    {item.icon && <item.icon />}
+                    {Icon && <Icon />}
                     <span>{item.title}</span>
                     <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                   </SidebarMenuButton>
@@ -70,13 +86,13 @@ export function NavMain({
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton tooltip={item.title} asChild>
                 <a href={item.url}>
-                  {item.icon && <item.icon />}
+                  {Icon && <Icon />}
                   <span>{item.title}</span>
                 </a>
               </SidebarMenuButton>
             </SidebarMenuItem>
-          )
-        )}
+          );
+        })}
       </SidebarMenu>
     </SidebarGroup>
   );
