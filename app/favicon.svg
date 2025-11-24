@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 578 714" width="578" height="714">
+  <defs>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        .logo-fill { fill: #ffffff; }
+      }
+      @media (prefers-color-scheme: light) {
+        .logo-fill { fill: #000000; }
+      }
+    </style>
+  </defs>
+  
+  <!-- Replace this with your actual vector logo paths -->
+  <!-- This is a placeholder - you need to trace the actual logo -->
+  <g class="logo-fill">
+    <circle cx="289" cy="357" r="280" opacity="0.1"/>
+    <path d="M289 100 L450 300 L400 600 L178 600 L128 300 Z"/>
+  </g>
+</svg>
