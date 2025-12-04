@@ -5,7 +5,6 @@ import { User } from "@/types";
 
 export async function NavUserAsync() {
   const user = await getCurrentUser();
-
   if (!user) {
     redirect("/");
   }

@@ -10,18 +10,15 @@ export type NavigationItem = {
 };
 
 // Simulate API delay for testing - REMOVE IN PRODUCTION
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function getNavigationData(): Promise<NavigationItem[]> {
-  // Simulate slow API - REMOVE IN PRODUCTION
-  await delay(1000);
-
   return [
     {
       title: "Dashboard",
       url: "/dashboard",
       icon: "home",
-      isActive: true,
+      // isActive: true,
     },
     {
       title: "Projects",

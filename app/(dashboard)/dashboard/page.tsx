@@ -1,18 +1,9 @@
 import { PageSkeleton } from "@/components/skeletons/page-skeleton";
 import { Suspense } from "react";
 
-/**
- * Dashboard page with Suspense Boundary #3
- *
- * Pattern:
- * - Page wrapper renders immediately with title
- * - Suspense boundary wraps async DashboardContent
- * - DashboardContent fetches data and streams in when ready
- */
 export default function Dashboard() {
   return (
     <>
-      {/* Title renders immediately */}
       <h1 className="text-3xl font-bold">Dashboard</h1>
 
       {/* Suspense Boundary #3: Page content */}
@@ -23,12 +14,7 @@ export default function Dashboard() {
   );
 }
 
-/**
- * Async server component for dashboard content
- * Fetches data and renders when ready
- */
 async function DashboardContent() {
-  // Simulate async data fetching - REMOVE IN PRODUCTION
   await new Promise((resolve) => setTimeout(resolve, 1500));
 
   // Example data

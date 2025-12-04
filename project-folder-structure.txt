@@ -1,0 +1,201 @@
+ELEMENTS-NEW - FULL FOLDER STRUCTURE
+=====================================
+Generated: 2025-11-24
+
+elements-new/
+│
+├── .claude/
+│   └── settings.local.json
+│
+├── app/
+│   ├── (dashboard)/
+│   │   ├── clients/
+│   │   │   ├── [id]/
+│   │   │   │   └── page.tsx
+│   │   │   ├── new/
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── projects/
+│   │   │   ├── [id]/
+│   │   │   │   ├── edit/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── new/
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── users/
+│   │   │   ├── new/
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   │
+│   │   └── layout.tsx
+│   │
+│   ├── api/
+│   │   ├── auth/
+│   │   │   ├── [kindeAuth]/
+│   │   │   │   └── route.js
+│   │   │   └── success/
+│   │   │       └── route.ts
+│   │   │
+│   │   ├── clients/
+│   │   │   ├── [id]/
+│   │   │   │   └── route.ts
+│   │   │   └── route.ts
+│   │   │
+│   │   ├── kinde-webhook/
+│   │   │   └── route.ts
+│   │   │
+│   │   ├── projects/
+│   │   │   ├── [id]/
+│   │   │   │   └── route.ts
+│   │   │   └── route.ts
+│   │   │
+│   │   └── users/
+│   │       ├── [id]/
+│   │       │   └── route.ts
+│   │       └── route.ts
+│   │
+│   ├── AuthProvider.tsx
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── components/
+│   ├── layout/
+│   │   └── layout-sidebar.tsx
+│   │
+│   ├── skeletons/
+│   │   ├── nav-main-skeleton.tsx
+│   │   ├── nav-user-skeleton.tsx
+│   │   └── page-skeleton.tsx
+│   │
+│   ├── ui/
+│   │   ├── avatar.tsx
+│   │   ├── breadcrumb-container.tsx
+│   │   ├── breadcrumb.tsx
+│   │   ├── button.tsx
+│   │   ├── collapsible.tsx
+│   │   ├── dropdown-menu.tsx
+│   │   ├── input.tsx
+│   │   ├── separator.tsx
+│   │   ├── sheet.tsx
+│   │   ├── sidebar.tsx
+│   │   ├── skeleton.tsx
+│   │   ├── theme-toggle.tsx
+│   │   └── tooltip.tsx
+│   │
+│   ├── app-sidebar.tsx
+│   ├── nav-main-async.tsx
+│   ├── nav-main.tsx
+│   ├── nav-user-async.tsx
+│   ├── nav-user.tsx
+│   └── theme-provider.tsx
+│
+├── contexts/
+│   ├── theme-context.tsx
+│   └── user-context.tsx
+│
+├── drizzle/
+│   ├── meta/
+│   │   ├── _journal.json
+│   │   └── 0000_snapshot.json
+│   └── 0000_glorious_vector.sql
+│
+├── hooks/
+│   └── use-mobile.ts
+│
+├── lib/
+│   ├── dal/
+│   │   ├── navigation.ts
+│   │   └── user.ts
+│   │
+│   ├── db/
+│   │   ├── schema/
+│   │   │   ├── index.ts
+│   │   │   └── user.ts
+│   │   └── index.ts
+│   │
+│   └── utils.ts
+│
+├── public/
+│   ├── images/
+│   │   ├── logo-full.png
+│   │   └── logo-shape.png
+│   │
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+│
+├── types/
+│   ├── client.types.ts
+│   ├── engineer.types.ts
+│   ├── index.ts
+│   ├── project.types.ts
+│   ├── task.types.ts
+│   └── user.types.ts
+│
+├── .env
+├── .gitignore
+├── components.json
+├── drizzle.config.ts
+├── eslint.config.mjs
+├── folder_structure_complete.txt
+├── folder_structure_tree.txt
+├── next.config.ts
+├── next-env.d.ts
+├── nextjs-suspense-architecture-prompt.txt
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── proxy.ts
+├── README.md
+├── tsconfig.json
+└── tsconfig.tsbuildinfo
+
+
+KEY DIRECTORIES:
+================
+
+📁 app/ - Next.js 15 App Router
+  └── (dashboard)/ - Protected dashboard routes
+  └── api/ - API endpoints (REST)
+
+📁 components/ - React components
+  └── layout/ - Layout components
+  └── skeletons/ - Loading skeletons for Suspense
+  └── ui/ - shadcn/ui components
+
+📁 lib/ - Utilities and core logic
+  └── dal/ - Data Access Layer (server-side data fetching)
+  └── db/ - Database configuration and schemas
+
+📁 contexts/ - React contexts (theme, user)
+
+📁 types/ - TypeScript type definitions
+
+📁 drizzle/ - Database migrations
+
+📁 public/ - Static assets
+
+
+ARCHITECTURE NOTES:
+===================
+
+✓ Multi-level Suspense boundaries for progressive rendering
+✓ Server Components for data fetching (async wrappers)
+✓ Client Components for interactivity (nav-main.tsx, nav-user.tsx)
+✓ Granular loading states with matching skeletons
+✓ Type-safe implementation with TypeScript
+✓ Data Access Layer pattern for clean separation
+✓ Kinde Auth for authentication
+✓ Drizzle ORM with Neon for database
+✓ shadcn/ui for UI components
