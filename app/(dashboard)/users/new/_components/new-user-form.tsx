@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/select";
 import { UserPlus, Upload, X } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { createUserInput, createUserSchema } from "@/lib/validations/user";
+import { CreateUserInput, createUserSchema } from "@/lib/validations/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
@@ -39,7 +39,7 @@ const NewUserForm = () => {
     formState: { errors, isSubmitting },
     setValue,
     watch,
-  } = useForm<createUserInput>({
+  } = useForm<CreateUserInput>({
     resolver: zodResolver(createUserSchema),
     defaultValues: {
       first_name: "",
@@ -65,7 +65,7 @@ const NewUserForm = () => {
     },
   });
 
-  const onSubmit = (data: createUserInput) => {
+  const onSubmit = (data: CreateUserInput) => {
     if (!data.avatar_url) {
       data.avatar_url = generateAvatarUrl("dicebear", "notionists", data.email);
     }

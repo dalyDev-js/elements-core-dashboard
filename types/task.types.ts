@@ -1,4 +1,3 @@
-import { Engineer } from "./engineer.types";
 import { Project } from "./project.types";
 import { Resource, ResourceAssignment } from "./resources.types";
 

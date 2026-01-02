@@ -70,4 +70,4 @@ export const createUserSchema = z.object({
   avatar_url: validators.avatar_url,
 });
 
-export type createUserInput = z.infer<typeof createUserSchema>;
+export type CreateUserInput = z.infer<typeof createUserSchema>;

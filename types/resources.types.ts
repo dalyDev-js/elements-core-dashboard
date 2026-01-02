@@ -14,10 +14,11 @@ export interface BaseResource {
 }
 
 export interface Engineer extends BaseResource {
+  id: string;
   type: "engineer";
   name: string;
   email: string;
-  specialty?: string;
+  salary?: string;
   phone?: string;
 }
 

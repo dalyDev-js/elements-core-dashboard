@@ -18,7 +18,7 @@ export const projectsTable = pgTable("projects", {
     .default("in-progress"),
   description: text("description"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
-  startAT: timestamp("startAt"),
+  startAt: timestamp("startAt"),
   endedAt: timestamp("endedAt"),
   clientId: varchar("clientId", { length: 255 })
     .references(() => clientsTable.id, { onDelete: "cascade" })

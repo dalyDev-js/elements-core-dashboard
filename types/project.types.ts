@@ -22,10 +22,33 @@ export interface Project {
   id: string;
   name: string;
   status: ProjectStatus;
+  description: string;
   createdAt: Date;
+  startAt: Date;
   endedAt: Date;
   client: Client;
   tasks: Task[];
   budget: number;
+  userId?: string;
+
   resources?: ProjectResource[];
+}
+
+// Create project Input
+
+export interface CreateProjectInput {
+  name: string;
+  client: Client;
+  budget?: number;
+  resources?: ProjectResource[];
+  status?: ProjectStatus;
+  startAt: Date;
+}
+
+export interface UpdateProjectInput {
+  name?: string;
+  client?: Client;
+  budget?: number;
+  resources?: ProjectResource[];
+  status?: ProjectStatus;
 }

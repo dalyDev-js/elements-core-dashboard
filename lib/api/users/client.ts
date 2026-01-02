@@ -1,12 +1,12 @@
 import { apiClient } from "../client";
 import { ApiResponse } from "../types";
 import { User } from "@/types";
-import { createUserInput } from "@/lib/validations/user";
+import { CreateUserInput } from "@/lib/validations/user";
 
 // User API client functions
 export const usersApi = {
   // Create a new user
-  create: async (data: createUserInput): Promise<User> => {
+  create: async (data: CreateUserInput): Promise<User> => {
     const response = await apiClient.post<ApiResponse<User>>("/users", data);
 
     if (!response.data.success) {
@@ -39,7 +39,7 @@ export const usersApi = {
   },
 
   // Update a user
-  update: async (id: string, data: Partial<createUserInput>): Promise<User> => {
+  update: async (id: string, data: Partial<CreateUserInput>): Promise<User> => {
     const response = await apiClient.put<ApiResponse<User>>(
       `/users/${id}`,
       data
