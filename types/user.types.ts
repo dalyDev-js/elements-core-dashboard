@@ -6,6 +6,7 @@ export interface User {
   email: string;
   role: UserRole;
   createdAt: Date;
-  profilePictureUrl?: string;
-  full_name?: string;
+  profilePictureUrl?: string | Blob | null;
+  phone_number?: string | null;
+  avatar_url?: string | null;
 }

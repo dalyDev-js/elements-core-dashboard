@@ -20,8 +20,6 @@ export const getCurrentUser = cache(async () => {
 });
 
 export const getAllUsers = cache(async () => {
-  const [users] = await db.select().from(usersTable);
+  const users = await db.select().from(usersTable);
   return users ?? [];
 });
-
-getAllUsers();

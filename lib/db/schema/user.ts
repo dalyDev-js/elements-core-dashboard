@@ -1,3 +1,4 @@
+import { UserRole } from "@/types";
 import { pgTable, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const usersTable = pgTable("users", {
@@ -5,7 +6,9 @@ export const usersTable = pgTable("users", {
   first_name: varchar("first_name", { length: 255 }).notNull(),
   last_name: varchar("last_name", { length: 255 }).notNull(),
   email: varchar("email", { length: 255 }).notNull().unique(),
-  role: varchar("role", { length: 50 }).notNull(),
+  role: varchar("role", { length: 50 }).notNull().$type<UserRole>(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   profilePictureUrl: varchar("profilePictureUrl", { length: 512 }),
+  phone_number: varchar("phone_number", { length: 255 }),
+  avatar_url: varchar("avatar_url", { length: 512 }),
 });

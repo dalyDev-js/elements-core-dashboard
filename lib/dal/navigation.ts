@@ -26,10 +26,6 @@ export async function getNavigationData(): Promise<NavigationItem[]> {
       icon: "square-terminal",
       items: [
         {
-          title: "New Project",
-          url: "/projects/new",
-        },
-        {
           title: "All Projects",
           url: "/projects",
         },
@@ -55,10 +51,6 @@ export async function getNavigationData(): Promise<NavigationItem[]> {
       url: "/users",
       icon: "book-open",
       items: [
-        {
-          title: "New User",
-          url: "/users/new",
-        },
         {
           title: "All Users",
           url: "/users",

@@ -8,4 +8,5 @@ export interface Engineer {
   email: string;
   projects: Project[];
   tasks: Task[];
+  salary: number;
 }

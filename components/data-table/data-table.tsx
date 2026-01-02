@@ -77,6 +77,7 @@ export function DataTable<TData, TValue>({
           {/* SEARCH INPUT */}
           {searchKey && (
             <Input
+              name="search"
               placeholder={searchPlaceholder}
               value={
                 (table.getColumn(searchKey)?.getFilterValue() as string) ?? ""
