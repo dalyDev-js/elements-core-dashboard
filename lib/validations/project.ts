@@ -2,7 +2,7 @@ import { z } from "zod";
 import { PROJECT_STATUS } from "@/types/project.types";
 
 export const validators = {
-  project_name: z
+  name: z
     .string()
     .min(2, "Project name is required")
     .max(50, "Project name must be less than 50 characters")
@@ -12,7 +12,7 @@ export const validators = {
     )
     .transform((val) => val.trim()),
 
-  project_description: z
+  description: z
     .string()
     .min(10, "Project description must be at least 10 characters")
     .max(500, "Project description must be less than 500 characters")
@@ -20,7 +20,7 @@ export const validators = {
     .optional()
     .or(z.literal("")),
 
-  project_status: z.enum(
+  status: z.enum(
     [
       PROJECT_STATUS.PLANNING,
       PROJECT_STATUS.IN_PROGRESS,
@@ -32,7 +32,7 @@ export const validators = {
     }
   ),
 
-  project_budget: z
+  budget: z
     .number({ message: "Budget must be a valid number" })
     .positive("Budget must be greater than 0")
     .max(999999999.99, "Budget exceeds maximum allowed value")
@@ -45,31 +45,28 @@ export const validators = {
       { message: "Budget can only have up to 2 decimal places" }
     ),
 
-  client_id: z
+  clientId: z
     .string()
     .min(1, "Client is required")
     .max(255, "Client ID is too long"),
 
-  user_id: z
-    .string()
-    .min(1, "User is required")
-    .max(255, "User ID is too long"),
+  userId: z.string().min(1, "User is required").max(255, "User ID is too long"),
 
-  start_date: z.date().optional(),
+  startAt: z.date().optional(),
 
-  end_date: z.date().optional(),
+  endAt: z.date().optional(),
 };
 
-export const createProjectSchema = z
+export const CreateProjectSchema = z
   .object({
-    project_name: validators.project_name,
-    project_description: validators.project_description,
-    project_status: validators.project_status,
-    project_budget: validators.project_budget,
-    client_id: validators.client_id,
-    user_id: validators.user_id,
-    start_date: validators.start_date,
-    end_date: validators.end_date,
+    project_name: validators.name,
+    project_description: validators.description,
+    project_status: validators.status,
+    project_budget: validators.budget,
+    client_id: validators.clientId,
+    user_id: validators.userId,
+    start_date: validators.startAt,
+    end_date: validators.endAt,
   })
   .refine(
     (data) => {
@@ -85,7 +82,7 @@ export const createProjectSchema = z
     }
   );
 
-export const updateProjectSchema = createProjectSchema.partial();
+export const updateProjectSchema = CreateProjectSchema.partial();
 
-export type CreateProjectInput = z.infer<typeof createProjectSchema>;
+export type CreateProjectInput = z.infer<typeof CreateProjectSchema>;
 export type UpdateProjectInput = z.infer<typeof updateProjectSchema>;
