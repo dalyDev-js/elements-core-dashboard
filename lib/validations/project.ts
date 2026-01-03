@@ -59,20 +59,20 @@ export const validators = {
 
 export const CreateProjectSchema = z
   .object({
-    project_name: validators.name,
-    project_description: validators.description,
-    project_status: validators.status,
-    project_budget: validators.budget,
-    client_id: validators.clientId,
-    user_id: validators.userId,
-    start_date: validators.startAt,
-    end_date: validators.endAt,
+    name: validators.name,
+    description: validators.description,
+    status: validators.status,
+    budget: validators.budget,
+    clientId: validators.clientId,
+    userId: validators.userId,
+    startAt: validators.startAt,
+    endAt: validators.endAt,
   })
   .refine(
     (data) => {
       // If both dates are provided, ensure end_date is after start_date
-      if (data.start_date && data.end_date) {
-        return data.end_date > data.start_date;
+      if (data.startAt && data.endAt) {
+        return data.endAt > data.startAt;
       }
       return true;
     },
